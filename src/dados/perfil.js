@@ -22,4 +22,9 @@ export const redesSociais = [
     rotulo: "GitHub",
     url: "",
   },
+  {
+    nome: "E-mail",
+    rotulo: "E-mail",
+    url: "",
+  },
 ];

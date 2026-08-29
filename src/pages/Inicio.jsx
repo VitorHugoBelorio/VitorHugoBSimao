@@ -1,64 +1,41 @@
 import { Link } from "react-router-dom";
 import PalavrasAnimadas from "../componentes/PalavrasAnimadas.jsx";
-import FotoPerfil from "../componentes/FotoPerfil.jsx";
-import LinksSociais from "../componentes/LinksSociais.jsx";
-import LinkPrevia from "../componentes/LinkPrevia.jsx";
 import Revelar from "../componentes/Revelar.jsx";
-import CabecalhoSecao from "../componentes/CabecalhoSecao.jsx";
-import { previasInicio } from "../dados/conteudo.js";
 
 export default function Inicio() {
   return (
-    <>
-      <section className="secao-principal" aria-labelledby="titulo-principal">
-        <div className="secao-principal__conteudo">
-          <Revelar className="secao-principal__meta">
-            <span>Software Engineer</span>
-            <span>Backend · Cloud · AI · Full Stack</span>
-          </Revelar>
+    <section className="entrada-inicial" aria-labelledby="titulo-inicial">
+      <div className="entrada-inicial__cena" aria-hidden="true">
+        <span className="lamina-abstrata lamina-abstrata--um" />
+        <span className="lamina-abstrata lamina-abstrata--dois" />
+        <span className="lamina-abstrata lamina-abstrata--tres" />
+        <span className="risco-luz risco-luz--um" />
+        <span className="risco-luz risco-luz--dois" />
+      </div>
 
-          <div className="secao-principal__titulo">
-            <PalavrasAnimadas
-              id="titulo-principal"
-              texto="Vitor Hugo"
-              className="titulo-principal"
-            />
-          </div>
-
-          <Revelar className="secao-principal__texto" atraso={0.38}>
-            <p>
-              [Adicionar descrição curta sobre atuação, interesses e momento
-              profissional.]
-            </p>
-            <div className="secao-principal__acoes" aria-label="Atalhos principais">
-              <Link className="link-texto" to="/portfolio">
-                Ver trajetória
-                <span aria-hidden="true">→</span>
-              </Link>
-              <Link className="link-texto link-texto--discreto" to="/artigos">
-                Ler artigos
-                <span aria-hidden="true">→</span>
-              </Link>
-            </div>
-            <LinksSociais />
-          </Revelar>
-        </div>
-
-        <FotoPerfil />
-      </section>
-
-      <section className="secao-conteudo secao-conteudo--primeira">
-        <CabecalhoSecao
-          marcador="Estrutura inicial"
-          titulo="Uma base visual para evoluir com calma."
-          texto="As áreas principais já ficam preparadas para receber conteúdo real sem exigir banco de dados, login ou painel administrativo."
+      <Revelar className="entrada-inicial__conteudo" quantidade={0.8}>
+        <p className="entrada-inicial__meta">Desenvolvedor Full-Stack</p>
+        <PalavrasAnimadas
+          id="titulo-inicial"
+          texto="Olá, eu sou Vitor Hugo"
+          linhas={["Olá, eu sou", "Vitor Hugo"]}
+          className="entrada-inicial__titulo"
+          atraso={0.12}
         />
-        <div className="lista-previas">
-          {previasInicio.map((item, indice) => (
-            <LinkPrevia item={item} indice={indice} key={item.caminho} />
-          ))}
+        <p className="entrada-inicial__texto">
+          Desenvolvedor de software full-stack, atualmente atuando como PJ no mercado de desnvolvimento.
+        </p>
+        <div className="entrada-inicial__acoes" aria-label="Atalhos principais">
+          <Link className="link-texto" to="/projetos">
+            Ver projetos
+            <span aria-hidden="true">→</span>
+          </Link>
+          <Link className="link-texto link-texto--discreto" to="/sobre-mim">
+            Saiba mais sobre mim
+            <span aria-hidden="true">→</span>
+          </Link>
         </div>
-      </section>
-    </>
+      </Revelar>
+    </section>
   );
 }

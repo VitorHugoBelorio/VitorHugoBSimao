@@ -1,6 +1,7 @@
 import Revelar from "../componentes/Revelar.jsx";
 import CabecalhoSecao from "../componentes/CabecalhoSecao.jsx";
-import { itensTrajetoria } from "../dados/conteudo.js";
+import CarrosselCertificados from "../componentes/CarrosselCertificados.jsx";
+import { certificados, itensTrajetoria } from "../dados/conteudo.js";
 
 export default function Portifolio() {
   return (
@@ -8,11 +9,9 @@ export default function Portifolio() {
       <section className="abertura-pagina abertura-pagina--compacta">
         <Revelar className="abertura-pagina__conteudo">
           <p className="marcador">Portfólio</p>
-          <h1>Trajetória em construção.</h1>
+          <h1>Minha trajetória no mundo tec.</h1>
           <p>
-            Um espaço para organizar formação, estágios, trabalhos, experiências
-            curriculares e iniciativas extracurriculares conforme o conteúdo real
-            for sendo definido.
+              Conheça como foi o meu desenvolvimento no mundo da tecnologia.
           </p>
         </Revelar>
       </section>
@@ -20,8 +19,8 @@ export default function Portifolio() {
       <section className="secao-conteudo">
         <CabecalhoSecao
           marcador="Linha do tempo"
-          titulo="Experiências sem ficção."
-          texto="Os blocos abaixo são placeholders claros para você substituir por dados reais quando quiser."
+          titulo="Alguns dos princípais marcos da minha carreira."
+          texto=""
         />
 
         <ol className="lista-linha-tempo">
@@ -44,6 +43,18 @@ export default function Portifolio() {
             </Revelar>
           ))}
         </ol>
+      </section>
+
+      <section className="secao-conteudo secao-conteudo--compacta">
+        <CabecalhoSecao
+          marcador="Certificações"
+          titulo="Certificações"
+          texto="Alguns dos meus certificados de maior relevância."
+        />
+
+        <Revelar atraso={0.08}>
+          <CarrosselCertificados certificados={certificados} />
+        </Revelar>
       </section>
     </>
   );

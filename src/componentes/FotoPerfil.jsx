@@ -19,22 +19,20 @@ export default function FotoPerfil() {
       }}
     >
       <div className="foto-perfil__moldura">
-        {possuiFoto ? (
-          <img
-            src={fotoPerfil.src}
-            alt={fotoPerfil.alt}
-            onError={() => setFalhaImagem(true)}
-          />
-        ) : (
-          <div className="foto-perfil__placeholder" aria-label="Espaço para foto de perfil">
-            <span>{fotoPerfil.orientacao}</span>
-          </div>
-        )}
+        <div className="foto-perfil__imagem">
+          {possuiFoto ? (
+            <img
+              src={fotoPerfil.src}
+              alt={fotoPerfil.alt}
+              onError={() => setFalhaImagem(true)}
+            />
+          ) : (
+            <div className="foto-perfil__placeholder" aria-label="Espaço para foto de perfil">
+              <span>{fotoPerfil.orientacao}</span>
+            </div>
+          )}
+        </div>
       </div>
-      <figcaption className="foto-perfil__legenda">
-        <span>Perfil</span>
-        <span>Imagem pessoal</span>
-      </figcaption>
     </motion.figure>
   );
 }

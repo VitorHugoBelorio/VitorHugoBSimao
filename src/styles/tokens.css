@@ -28,7 +28,7 @@
   --font-sans: "Geist", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-mono: "JetBrains Mono", "Geist Mono", "SFMono-Regular", Consolas, monospace;
 
-  --font-size-hero: 8.25rem;
+  --font-size-hero: 6.35rem;
   --font-size-h1: 5.25rem;
   --font-size-h2: 3.35rem;
   --font-size-h3: 1.45rem;
@@ -60,7 +60,7 @@
 
 @media (max-width: 980px) {
   :root {
-    --font-size-hero: 6rem;
+    --font-size-hero: 4.85rem;
     --font-size-h1: 4rem;
     --font-size-h2: 2.75rem;
     --page-padding: 32px;
@@ -71,7 +71,7 @@
 
 @media (max-width: 640px) {
   :root {
-    --font-size-hero: 4.15rem;
+    --font-size-hero: 3.05rem;
     --font-size-h1: 3rem;
     --font-size-h2: 2.2rem;
     --font-size-h3: 1.2rem;

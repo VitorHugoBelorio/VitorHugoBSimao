@@ -22,6 +22,42 @@ export const previasInicio = [
   },
 ];
 
+export const pilaresTecnicos = [
+  {
+    marcador: "01",
+    titulo: "Construção com contexto",
+    texto: "[Preencher depois] Exemplo: gosto de entender o problema, o usuário e as restrições antes de escolher ferramentas ou arquitetura.",
+  },
+  {
+    marcador: "02",
+    titulo: "Backend, integrações e clareza",
+    texto: "[Preencher depois] Exemplo: tenho interesse por sistemas organizados, APIs bem pensadas, automações e fluxos fáceis de manter.",
+  },
+  {
+    marcador: "03",
+    titulo: "Aprendizado aplicado",
+    texto: "[Preencher depois] Exemplo: transformo estudo em prática, testando ideias em projetos reais e registrando decisões ao longo do caminho.",
+  },
+];
+
+export const alemDoCodigo = [
+  {
+    marcador: "Motivação",
+    titulo: "O que me move",
+    texto: "[Preencher depois] Exemplo: resolver problemas com calma, aprender continuamente e construir coisas que tenham utilidade de verdade.",
+  },
+  {
+    marcador: "Rotina",
+    titulo: "Como gosto de aprender",
+    texto: "[Preencher depois] Exemplo: alterno estudo, prática e documentação para consolidar conhecimento sem depender só de teoria.",
+  },
+  {
+    marcador: "Interesses",
+    titulo: "Fora do trabalho",
+    texto: "[Preencher depois] Exemplo: incluir hobbies, temas que você acompanha, hábitos ou algo que mostre sua personalidade além da tecnologia.",
+  },
+];
+
 export const itensTrajetoria = [
   {
     periodo: "[Adicionar período]",
@@ -46,6 +82,41 @@ export const itensTrajetoria = [
     titulo: "[Adicionar experiência extracurricular]",
     descricao: "[Adicionar descrição]",
     meta: "Extracurricular",
+  },
+];
+
+export const certificados = [
+  {
+    titulo: "[Adicionar certificado relevante]",
+    emissor: "[Adicionar instituição]",
+    periodo: "[Adicionar ano]",
+    descricao: "[Adicionar breve contexto sobre o que esse certificado valida.]",
+    etiquetas: ["Backend", "Arquitetura", "Prática"],
+    imagem: null,
+  },
+  {
+    titulo: "[Adicionar certificação técnica]",
+    emissor: "[Adicionar instituição]",
+    periodo: "[Adicionar ano]",
+    descricao: "[Adicionar tecnologia, carga horária ou área de conhecimento.]",
+    etiquetas: ["Cloud", "DevOps", "Infra"],
+    imagem: null,
+  },
+  {
+    titulo: "[Adicionar curso complementar]",
+    emissor: "[Adicionar instituição]",
+    periodo: "[Adicionar ano]",
+    descricao: "[Adicionar por que esse curso foi relevante para sua trajetória.]",
+    etiquetas: ["IA", "Dados", "Produto"],
+    imagem: null,
+  },
+  {
+    titulo: "[Adicionar conquista acadêmica]",
+    emissor: "[Adicionar instituição]",
+    periodo: "[Adicionar ano]",
+    descricao: "[Adicionar formação, evento, imersão ou reconhecimento importante.]",
+    etiquetas: ["Pesquisa", "Estudo", "Software"],
+    imagem: null,
   },
 ];
 

@@ -8,12 +8,7 @@ export default function Artigos() {
       <section className="abertura-pagina abertura-pagina--editorial">
         <Revelar className="abertura-pagina__conteudo">
           <p className="marcador">Artigos</p>
-          <h1>Notas, estudos e opinião técnica.</h1>
-          <p>
-            Uma área mais editorial, com menos efeitos e mais espaço para leitura,
-            preparada para artigos escritos diretamente no código enquanto o
-            projeto evolui.
-          </p>
+          <h1>Estudos, artigos e opinião técnica.</h1>
         </Revelar>
       </section>
 

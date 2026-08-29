@@ -9,6 +9,51 @@
   display: inline-block;
 }
 
+.linha-palavras {
+  display: block;
+}
+
+@keyframes laminaFlutuar {
+  from {
+    opacity: 0.5;
+    translate: -10px 8px;
+  }
+
+  to {
+    opacity: 0.78;
+    translate: 14px -12px;
+  }
+}
+
+@keyframes laminaRespirar {
+  from {
+    opacity: 0.34;
+    scale: 0.96;
+  }
+
+  to {
+    opacity: 0.64;
+    scale: 1.04;
+  }
+}
+
+@keyframes riscoLuz {
+  0% {
+    opacity: 0;
+    scale: 0.28 1;
+  }
+
+  38% {
+    opacity: 0.78;
+    scale: 1 1;
+  }
+
+  100% {
+    opacity: 0;
+    scale: 1.12 1;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
