@@ -6,7 +6,7 @@ export default function Cabecalho() {
     <header className="cabecalho-site" aria-label="Navegação principal">
       <div className="cabecalho-site__interno">
         <NavLink className="marca" to="/" aria-label="Ir para o início">
-          <span>VH</span>
+          <span>Vitor Hugo B Simão</span>
         </NavLink>
 
         <nav className="navegacao-principal">

@@ -9,6 +9,9 @@ export default function Artigos() {
         <Revelar className="abertura-pagina__conteudo">
           <p className="marcador">Artigos</p>
           <h1>Estudos, artigos e opinião técnica.</h1>
+          <p>
+            Aqui é onde eu compartilho como eu uso ferramentas, bibliotecas, novos aprendizados e me posiciono sobre alguns pontos do mundo de tecnologia.
+          </p>
         </Revelar>
       </section>
 
