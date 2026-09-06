@@ -1,60 +1,21 @@
-export const previasInicio = [
-  {
-    marcador: "Portfólio",
-    titulo: "Trajetória organizada por contexto.",
-    texto: "Área reservada para experiências acadêmicas, profissionais, curriculares e extracurriculares.",
-    caminho: "/portfolio",
-    acao: "Ver estrutura",
-  },
-  {
-    marcador: "Projetos",
-    titulo: "Projetos com espaço para decisões técnicas.",
-    texto: "Base inicial para separar projetos profissionais, pessoais e conhecimentos sem virar uma parede de logos.",
-    caminho: "/projetos",
-    acao: "Explorar projetos",
-  },
-  {
-    marcador: "Artigos",
-    titulo: "Uma seção editorial para pensamento técnico.",
-    texto: "Estrutura para textos sobre software, IA aplicada, ferramentas, aprendizado e prática diária.",
-    caminho: "/artigos",
-    acao: "Abrir artigos",
-  },
-];
-
-export const pilaresTecnicos = [
-  {
-    marcador: "01",
-    titulo: "Construção com contexto",
-    texto: "[Preencher depois] Exemplo: gosto de entender o problema, o usuário e as restrições antes de escolher ferramentas ou arquitetura.",
-  },
-  {
-    marcador: "02",
-    titulo: "Backend, integrações e clareza",
-    texto: "[Preencher depois] Exemplo: tenho interesse por sistemas organizados, APIs bem pensadas, automações e fluxos fáceis de manter.",
-  },
-  {
-    marcador: "03",
-    titulo: "Aprendizado aplicado",
-    texto: "[Preencher depois] Exemplo: transformo estudo em prática, testando ideias em projetos reais e registrando decisões ao longo do caminho.",
-  },
-];
-
 export const alemDoCodigo = [
   {
     marcador: "Motivação",
     titulo: "O que me move",
-    texto: "[Preencher depois] Exemplo: resolver problemas com calma, aprender continuamente e construir coisas que tenham utilidade de verdade.",
+    texto:
+      "Além de gostar de resolver problemas, valorizo a evolução constante em diferentes áreas da vida. Acredito que pequenos investimentos diários nessas áreas, com disciplina e curiosidade ajudam a construir uma trajetória mais consciente e recompensadora no longo prazo.",
   },
   {
     marcador: "Rotina",
     titulo: "Como gosto de aprender",
-    texto: "[Preencher depois] Exemplo: alterno estudo, prática e documentação para consolidar conhecimento sem depender só de teoria.",
+    texto:
+      "Meu aprendizado costuma misturar estudo, prática e registro. Gosto de testar ideias em projetos, documentar decisões e transformar curiosidade em repertório técnico. Também valorizo muito a troca com outras pessoas, não apenas sobre tecnologia, porque acredito que todo contato pode ensinar algo novo.",
   },
   {
     marcador: "Interesses",
     titulo: "Fora do trabalho",
-    texto: "[Preencher depois] Exemplo: incluir hobbies, temas que você acompanha, hábitos ou algo que mostre sua personalidade além da tecnologia.",
+    texto:
+      "Além do código, gosto de cultivar interesses diferentes: pratico musculação, leio livros de gêneros variados, coleciono perfumes e, nas horas vagas, gosto de estudar neurociência.",
   },
 ];
 
@@ -101,8 +62,6 @@ export const certificados = [
     titulo: "Programa de bolsas em Desenvolvimento de Software",
     emissor: "CompassUOL",
     periodo: "2024 - 2025",
-    descricao:
-      "Certificação mais diretamente conectada ao estágio, reunindo prática em squads, desenvolvimento de software, AWS e machine learning.",
     etiquetas: ["Estágio", "AWS", "Machine Learning"],
     imagem: "/certificados/programa-bolsas-compassuol.png",
   },
@@ -110,8 +69,6 @@ export const certificados = [
     titulo: "AI-Assisted",
     emissor: "CompassUOL",
     periodo: "[Adicionar ano]",
-    descricao:
-      "Reforça o contato com desenvolvimento apoiado por inteligência artificial, conectando produtividade, análise e construção de soluções.",
     etiquetas: ["IA", "Desenvolvimento", "Produtividade"],
     imagem: "/certificados/ai-assisted.png",
   },
@@ -119,8 +76,6 @@ export const certificados = [
     titulo: "Gen AI Technical",
     emissor: "CompassUOL",
     periodo: "[Adicionar ano]",
-    descricao:
-      "Bom destaque para reforçar sua atuação com inteligência artificial generativa aplicada ao desenvolvimento de soluções.",
     etiquetas: ["IA Generativa", "Software", "Produto"],
     imagem: "/certificados/gen-ai-technical.png",
   },
@@ -128,8 +83,6 @@ export const certificados = [
     titulo: "AWS Partner Accreditation Technical",
     emissor: "AWS",
     periodo: "[Adicionar ano]",
-    descricao:
-      "Certificado relevante para mostrar fundamentos técnicos de nuvem AWS e visão de arquitetura para ambientes em cloud.",
     etiquetas: ["AWS", "Cloud", "Arquitetura"],
     imagem: "/certificados/aws-partner-accreditation-technical.png",
   },
@@ -137,8 +90,6 @@ export const certificados = [
     titulo: "Fundamentos Técnicos da AWS",
     emissor: "AWS",
     periodo: "[Adicionar ano]",
-    descricao:
-      "Base importante para compreensão dos principais serviços, conceitos e decisões técnicas no ecossistema AWS.",
     etiquetas: ["AWS", "Fundamentos", "Cloud"],
     imagem: "/certificados/fundamentos-tecnicos-aws.png",
   },
@@ -146,8 +97,6 @@ export const certificados = [
     titulo: "AWS Bedrock Workshop",
     emissor: "Udemy",
     periodo: "[Adicionar ano]",
-    descricao:
-      "Complementa a trilha de IA generativa com foco em aplicações que utilizam modelos fundacionais dentro do ecossistema AWS.",
     etiquetas: ["AWS Bedrock", "IA Generativa", "Cloud"],
     imagem: "/certificados/aws-bedrock-workshop.png",
   },
@@ -155,8 +104,6 @@ export const certificados = [
     titulo: "AWS CDK",
     emissor: "Udemy",
     periodo: "[Adicionar ano]",
-    descricao:
-      "Demonstra estudo em infraestrutura como código e provisionamento de recursos AWS usando uma abordagem mais próxima do desenvolvimento.",
     etiquetas: ["AWS CDK", "Infra as Code", "Cloud"],
     imagem: "/certificados/aws-cdk.png",
   },
@@ -164,8 +111,6 @@ export const certificados = [
     titulo: "AWS Security",
     emissor: "Udemy",
     periodo: "[Adicionar ano]",
-    descricao:
-      "Adiciona repertório sobre segurança em cloud, permissões, boas práticas e cuidado com ambientes de aplicação.",
     etiquetas: ["AWS", "Segurança", "Cloud"],
     imagem: "/certificados/aws-security.png",
   },
@@ -173,8 +118,6 @@ export const certificados = [
     titulo: "Machine Learning com Amazon AWS e SageMaker",
     emissor: "Udemy",
     periodo: "[Adicionar ano]",
-    descricao:
-      "Ajuda a sustentar a narrativa de estudos em machine learning aplicado ao ecossistema AWS e soluções com IA.",
     etiquetas: ["Machine Learning", "SageMaker", "AWS"],
     imagem: "/certificados/machine-learning-aws-sagemaker.png",
   },
@@ -182,8 +125,6 @@ export const certificados = [
     titulo: "Introduction to Machine Learning",
     emissor: "AWS",
     periodo: "[Adicionar ano]",
-    descricao:
-      "Mostra base conceitual em machine learning, ajudando a sustentar o uso de IA como parte do desenvolvimento de soluções.",
     etiquetas: ["Machine Learning", "IA", "AWS"],
     imagem: "/certificados/introduction-to-machine-learning.png",
   },
@@ -191,8 +132,6 @@ export const certificados = [
     titulo: "Planning a Machine Learning Project",
     emissor: "AWS",
     periodo: "[Adicionar ano]",
-    descricao:
-      "Certificado relevante para demonstrar visão de planejamento, definição de problema e estruturação de projetos com machine learning.",
     etiquetas: ["Machine Learning", "Planejamento", "Produto"],
     imagem: "/certificados/planning-machine-learning-project.png",
   },
@@ -200,8 +139,6 @@ export const certificados = [
     titulo: "Terraform",
     emissor: "Udemy",
     periodo: "[Adicionar ano]",
-    descricao:
-      "Reforça conhecimentos em infraestrutura como código, automação e organização de ambientes para entrega de software.",
     etiquetas: ["Terraform", "DevOps", "Infra"],
     imagem: "/certificados/terraform.png",
   },
@@ -209,8 +146,6 @@ export const certificados = [
     titulo: "Formação Python Backend Developer",
     emissor: "DIO",
     periodo: "[Adicionar ano]",
-    descricao:
-      "Complementa seu perfil full-stack com foco em backend, APIs, frameworks Python e construção de aplicações web.",
     etiquetas: ["Python", "Backend", "APIs"],
     imagem: "/certificados/formacao-python-backend-developer.png",
   },
@@ -218,8 +153,6 @@ export const certificados = [
     titulo: "JavaScript",
     emissor: "Udemy",
     periodo: "[Adicionar ano]",
-    descricao:
-      "Certificação ligada a uma das linguagens presentes no seu dia a dia full-stack, especialmente no desenvolvimento frontend.",
     etiquetas: ["JavaScript", "Frontend", "Full-Stack"],
     imagem: "/certificados/javascript-udemy.png",
   },
@@ -227,8 +160,6 @@ export const certificados = [
     titulo: "Postman Iniciante",
     emissor: "Udemy",
     periodo: "[Adicionar ano]",
-    descricao:
-      "Ferramenta importante para testes, documentação e validação de APIs durante o desenvolvimento e sustentação de sistemas.",
     etiquetas: ["APIs", "Postman", "Testes"],
     imagem: "/certificados/postman-iniciante.png",
   },
@@ -236,8 +167,6 @@ export const certificados = [
     titulo: "Cyber Threat Management",
     emissor: "Cisco",
     periodo: "[Adicionar ano]",
-    descricao:
-      "Amplia a narrativa técnica com fundamentos de segurança, ameaças cibernéticas e cuidado com riscos em ambientes digitais.",
     etiquetas: ["Segurança", "Cisco", "Cybersecurity"],
     imagem: "/certificados/cyber-threat-management.png",
   },
@@ -245,8 +174,6 @@ export const certificados = [
     titulo: "Introdução ao Google Cloud Platform",
     emissor: "DIO",
     periodo: "[Adicionar ano]",
-    descricao:
-      "Complementa sua experiência em cloud mostrando contato também com Google Cloud, ainda que em um uso mais restrito.",
     etiquetas: ["Google Cloud", "Cloud", "Infra"],
     imagem: "/certificados/introducao-google-cloud-platform.png",
   },
@@ -254,8 +181,6 @@ export const certificados = [
     titulo: "GitHub Copilot",
     emissor: "DIO",
     periodo: "[Adicionar ano]",
-    descricao:
-      "Mostra interesse em ferramentas de IA para desenvolvimento, produtividade e apoio ao fluxo de programação.",
     etiquetas: ["GitHub Copilot", "IA", "Produtividade"],
     imagem: "/certificados/github-copilot-aprimorando-desenvolvimento.png",
   },
@@ -263,8 +188,6 @@ export const certificados = [
     titulo: "Bases de Prompt Engineering para GitHub Copilot",
     emissor: "DIO",
     periodo: "[Adicionar ano]",
-    descricao:
-      "Complementa o uso de IA no desenvolvimento com fundamentos de prompting e interação mais eficiente com assistentes de código.",
     etiquetas: ["Prompt Engineering", "GitHub Copilot", "IA"],
     imagem: "/certificados/github-copilot-prompt-engineering.png",
   },
@@ -272,8 +195,6 @@ export const certificados = [
     titulo: "Copilot Chat",
     emissor: "DIO",
     periodo: "[Adicionar ano]",
-    descricao:
-      "Mostra contato com recursos conversacionais de IA para análise, explicação e apoio durante o desenvolvimento de software.",
     etiquetas: ["Copilot Chat", "IA", "Desenvolvimento"],
     imagem: "/certificados/github-copilot-chat.png",
   },
@@ -281,8 +202,6 @@ export const certificados = [
     titulo: "Configurando e usando o GitHub Copilot",
     emissor: "DIO",
     periodo: "[Adicionar ano]",
-    descricao:
-      "Reforça a prática de configuração e uso do GitHub Copilot como ferramenta de apoio à produtividade no dia a dia.",
     etiquetas: ["GitHub Copilot", "Produtividade", "Ferramentas"],
     imagem: "/certificados/github-copilot-configurando-e-usando.png",
   },
@@ -290,8 +209,6 @@ export const certificados = [
     titulo: "Introdução ao GitHub Copilot",
     emissor: "DIO",
     periodo: "[Adicionar ano]",
-    descricao:
-      "Certificado introdutório sobre os conceitos e possibilidades de uso do GitHub Copilot no fluxo de desenvolvimento.",
     etiquetas: ["GitHub Copilot", "IA", "Introdução"],
     imagem: "/certificados/github-copilot-introducao.png",
   },
@@ -299,8 +216,6 @@ export const certificados = [
     titulo: "Orientação a Objetos",
     emissor: "balta.io",
     periodo: "[Adicionar ano]",
-    descricao:
-      "Um certificado de base importante para reforçar fundamentos de programação, modelagem e organização de código.",
     etiquetas: ["OOP", "Fundamentos", "Software"],
     imagem: "/certificados/orientacao-a-objetos-balta.png",
   },
@@ -308,8 +223,6 @@ export const certificados = [
     titulo: "Integração de IA em projetos Laravel",
     emissor: "SETEC / FATEC",
     periodo: "2025",
-    descricao:
-      "Um diferencial por representar não só aprendizado técnico, mas também sua experiência ensinando integração de IA em aplicações reais.",
     etiquetas: ["Ensino", "Laravel", "IA"],
     imagem: "/certificados/setec-laravel-ia.png",
   },
@@ -317,22 +230,41 @@ export const certificados = [
 
 export const projetos = [
   {
-    tipo: "Profissional",
-    titulo: "[Adicionar projeto profissional]",
-    descricao: "[Adicionar objetivo, contexto e participação]",
-    meta: "[Adicionar tecnologias]",
+    tipo: "Produto",
+    titulo: "SysBrain",
+    descricao:
+      "Produto interno da Sysalti para orquestrar automações de backoffice B2B com inteligência artificial. A plataforma conecta canais, APIs e bases de conhecimento para criar assistentes capazes de atender, consultar dados, executar ações e apoiar processos como e-mails, contratos, mensagens e chamados.",
+    url: "https://sysbrain.io/",
+    rotuloLink: "Acessar site",
   },
   {
-    tipo: "Pessoal",
-    titulo: "[Adicionar projeto pessoal]",
-    descricao: "[Adicionar problema resolvido e decisões técnicas]",
-    meta: "[Adicionar tecnologias]",
+    tipo: "Site",
+    titulo: "Flow Week",
+    mentor: {
+      prefixo: "Projeto desenvolvido na mentoria com",
+      nome: "Adriano Júnio",
+      url: "https://www.linkedin.com/in/maiscafe/",
+    },
+    descricao:
+      "Sistema de controle e planejamento semanal criado para organizar rotina, prioridades e entregas. Durante o desenvolvimento, aprofundei o uso eficiente de Docker, autenticação por e-mail, boas práticas de desenvolvimento, deploy seguro e proteção da aplicação, além de aprender muito com a experiência prática da mentoria.",
+    url: "https://flow-week-web.vercel.app/",
+    rotuloLink: "Acessar site",
   },
   {
-    tipo: "Estudo",
-    titulo: "[Adicionar experimento técnico]",
-    descricao: "[Adicionar aprendizado, ferramenta estudada ou hipótese testada]",
-    meta: "[Adicionar tecnologias]",
+    tipo: "Repositório",
+    titulo: "ChatBot SETEC",
+    descricao:
+      "Repositório do projeto utilizado no curso que ministrei na faculdade durante a SETEC. A proposta foi demonstrar, de forma prática, como integrar uma aplicação Laravel com um modelo de IA, usando o Gemini como exemplo para construir um chatbot funcional.",
+    url: "https://github.com/VitorHugoBelorio/ChatBotSETEC",
+    rotuloLink: "Ver repositório",
+  },
+  {
+    tipo: "TCC",
+    titulo: "Futura",
+    descricao:
+      "Projeto desenvolvido para o TCC, a partir de uma proposta iniciada na disciplina de Engenharia de Software. O sistema nasceu após levantamento de requisitos em um escritório de contabilidade, com o objetivo de transformar um problema real da empresa em uma solução que facilitasse sua rotina e apoiasse a resolução das demandas identificadas.",
+    url: "https://github.com/VitorHugoBelorio/Futura",
+    rotuloLink: "Ver repositório",
   },
 ];
 
@@ -494,10 +426,44 @@ export const ferramentasDevOps = [
 
 export const artigos = [
   {
-    rotulo: "Ideia de artigo",
+    slug: "ia-no-dia-a-dia-do-desenvolvedor",
+    rotulo: "IA aplicada",
     titulo: "Como usar IA da melhor forma no dia a dia de um desenvolvedor?",
-    descricao: "[Adicionar recorte, argumento principal e rascunho do artigo]",
-    status: "Rascunho futuro",
+    descricao:
+      "Um ensaio fictício sobre como usar IA como apoio técnico sem terceirizar raciocínio, contexto e responsabilidade.",
+    status: "Artigo experimental",
+    data: "Setembro de 2026",
+    destaque:
+      "A pergunta mais importante não é se a IA consegue gerar código, mas se eu continuo entendendo o problema, as restrições e as consequências da solução que estou entregando.",
+    secoes: [
+      {
+        titulo: "Começar pelo contexto, não pelo prompt",
+        paragrafos: [
+          "Em um cenário real de desenvolvimento, a IA responde melhor quando recebe contexto de produto, regra de negócio, limitações técnicas e intenção da mudança. Um pedido genérico tende a gerar uma resposta genérica; um pedido bem situado ajuda a transformar a ferramenta em apoio de análise.",
+          "Antes de pedir uma solução, gosto de organizar o problema: o que precisa mudar, qual comportamento não pode ser quebrado, quais arquivos concentram a regra e quais dúvidas ainda precisam ser respondidas. Esse preparo melhora tanto a conversa com a IA quanto a minha própria clareza.",
+        ],
+      },
+      {
+        titulo: "Usar IA para ampliar opções",
+        paragrafos: [
+          "Um dos usos mais produtivos é pedir alternativas. A IA pode comparar abordagens, apontar riscos, sugerir testes e lembrar detalhes que passariam despercebidos em uma primeira leitura.",
+          "Mesmo assim, a decisão final precisa continuar humana e contextual. A ferramenta pode sugerir caminhos, mas quem conhece o sistema, o prazo, o time e o impacto da mudança precisa assumir a escolha.",
+        ],
+      },
+      {
+        titulo: "Transformar velocidade em qualidade",
+        paragrafos: [
+          "Acelerar só vale a pena quando a entrega continua compreensível. Por isso, gosto de usar IA para revisar nomes, simplificar fluxos, levantar casos de borda e escrever testes mais objetivos.",
+          "Quando usada dessa forma, ela não substitui o cuidado técnico; ela ajuda a sustentar esse cuidado em um ritmo melhor.",
+        ],
+      },
+    ],
+    pontos: [
+      "Explicar o problema antes de pedir a solução.",
+      "Solicitar alternativas e riscos, não apenas código pronto.",
+      "Validar tudo com leitura, testes e entendimento do impacto.",
+      "Registrar decisões importantes para facilitar manutenção futura.",
+    ],
   },
   {
     rotulo: "Estudo",

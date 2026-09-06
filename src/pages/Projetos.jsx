@@ -9,22 +9,15 @@ export default function Projetos() {
       <section className="abertura-pagina abertura-pagina--ampla">
         <Revelar className="abertura-pagina__conteudo">
           <p className="marcador">Projetos</p>
-          <h1>Construções técnicas com contexto.</h1>
+          <h1>Sites e repositórios que desenvolvi.</h1>
           <p>
-            A estrutura separa projetos e conhecimentos por intenção, tecnologia
-            e participação, sem transformar a página em uma vitrine genérica de
-            logos.
+            Uma seleção de trabalhos publicados, experimentos técnicos e
+            repositórios que representam minha evolução como desenvolvedor.
           </p>
         </Revelar>
       </section>
 
       <section className="secao-conteudo">
-        <CabecalhoSecao
-          marcador="Projetos"
-          titulo="Espaços para casos reais."
-          texto="Cada linha poderá receber objetivo, problema resolvido, stack e sua participação."
-        />
-
         <div className="lista-projetos">
           {projetos.map((projeto, indice) => (
             <Revelar
@@ -34,11 +27,34 @@ export default function Projetos() {
               key={projeto.titulo}
             >
               <span className="linha-projeto__tipo">{projeto.tipo}</span>
-              <div>
+              <div className="linha-projeto__conteudo">
                 <h3>{projeto.titulo}</h3>
-                <p>{projeto.descricao}</p>
+                <p>
+                  {projeto.mentor ? (
+                    <>
+                      {projeto.mentor.prefixo}{" "}
+                      <a
+                        className="linha-projeto__link-texto"
+                        href={projeto.mentor.url}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        {projeto.mentor.nome}
+                      </a>
+                      .{" "}
+                    </>
+                  ) : null}
+                  {projeto.descricao}
+                </p>
               </div>
-              <span className="linha-projeto__meta">{projeto.meta}</span>
+              <a
+                className="linha-projeto__acao"
+                href={projeto.url}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {projeto.rotuloLink}
+              </a>
             </Revelar>
           ))}
         </div>

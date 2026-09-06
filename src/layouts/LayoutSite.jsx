@@ -15,8 +15,8 @@ export default function LayoutSite({ children }) {
       {!estaNaTelaInicial && (
         <footer className="rodape-site">
           <div className="rodape-site__interno">
-            <span>Vitor Hugo</span>
-            <span>Software Engineering · Creative Development · Minimalism</span>
+            <span>Vitor Hugo B Simão</span>
+            <span>Desenvolvedor Full-Stack</span>
           </div>
         </footer>
       )}

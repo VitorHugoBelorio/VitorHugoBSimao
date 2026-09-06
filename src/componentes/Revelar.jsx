@@ -4,6 +4,7 @@ const elementos = {
   div: motion.div,
   section: motion.section,
   article: motion.article,
+  aside: motion.aside,
   header: motion.header,
   li: motion.li,
   p: motion.p,
@@ -15,6 +16,7 @@ export default function Revelar({
   className,
   atraso = 0,
   quantidade = 0.24,
+  ...props
 }) {
   const prefereReducaoMovimento = useReducedMotion();
   const Elemento = elementos[como] || motion.div;
@@ -22,13 +24,14 @@ export default function Revelar({
   return (
     <Elemento
       className={className}
-      initial={prefereReducaoMovimento ? false : { opacity: 0, y: 32 }}
+      {...props}
+      initial={prefereReducaoMovimento ? false : { opacity: 0, y: 22 }}
       whileInView={prefereReducaoMovimento ? undefined : { opacity: 1, y: 0 }}
       viewport={{ once: true, amount: quantidade }}
       transition={{
-        duration: 0.65,
+        duration: 0.54,
         delay: atraso,
-        ease: [0.22, 1, 0.36, 1],
+        ease: [0.16, 1, 0.3, 1],
       }}
     >
       {children}
