@@ -10,11 +10,12 @@ export default function FotoPerfil() {
   return (
     <motion.figure
       className="foto-perfil"
-      initial={prefereReducaoMovimento ? false : { opacity: 0, y: 24 }}
-      animate={prefereReducaoMovimento ? { opacity: 1 } : { opacity: 1, y: 0 }}
+      initial={prefereReducaoMovimento ? false : { opacity: 0, x: 20, scale: 0.96 }}
+      whileInView={prefereReducaoMovimento ? undefined : { opacity: 1, x: 0, scale: 1 }}
+      viewport={{ once: true, amount: 0.18 }}
       transition={{
-        duration: prefereReducaoMovimento ? 0.01 : 0.68,
-        delay: 0.42,
+        duration: prefereReducaoMovimento ? 0 : 0.64,
+        delay: prefereReducaoMovimento ? 0 : 0.14,
         ease: [0.22, 1, 0.36, 1],
       }}
     >

@@ -1,8 +1,6 @@
-import { useLocation } from "react-router-dom";
 import Cabecalho from "../componentes/Cabecalho.jsx";
 
-export default function LayoutSite({ children }) {
-  const { pathname } = useLocation();
+export default function LayoutSite({ children, pathname }) {
   const estaNaTelaInicial = pathname === "/";
 
   return (

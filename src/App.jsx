@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useCallback, useState } from "react";
 import { AnimatePresence } from "motion/react";
 import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import LayoutSite from "./layouts/LayoutSite.jsx";
@@ -30,86 +30,78 @@ function obterIndiceRota(pathname) {
 
 function obterTipoTransicao(pathname) {
   if (pathname.startsWith("/artigos/")) {
-    return "editorial";
+    return "leitura";
   }
 
   return transicoesPorRota[pathname] || "lateral";
 }
 
+function obterProfundidadeRota(pathname) {
+  return pathname.split("/").filter(Boolean).length;
+}
+
+function obterDirecaoTransicao(pathnameAtual, pathnameAnterior) {
+  const indiceAtual = obterIndiceRota(pathnameAtual);
+  const indiceAnterior = obterIndiceRota(pathnameAnterior);
+
+  if (indiceAtual !== indiceAnterior) {
+    return indiceAtual > indiceAnterior ? 1 : -1;
+  }
+
+  if (pathnameAtual !== pathnameAnterior) {
+    const profundidadeAtual = obterProfundidadeRota(pathnameAtual);
+    const profundidadeAnterior = obterProfundidadeRota(pathnameAnterior);
+
+    if (profundidadeAtual !== profundidadeAnterior) {
+      return profundidadeAtual > profundidadeAnterior ? 1 : -1;
+    }
+  }
+
+  return 0;
+}
+
 function RotasAnimadas() {
   const localizacao = useLocation();
-  const indiceAtual = obterIndiceRota(localizacao.pathname);
-  const indiceAnteriorRef = useRef(indiceAtual);
+  const [pathnameExibido, setPathnameExibido] = useState(localizacao.pathname);
+  const [navegacao, setNavegacao] = useState({ pathname: localizacao.pathname, direcao: 0 });
   const tipoTransicao = obterTipoTransicao(localizacao.pathname);
-  const direcao =
-    indiceAtual === indiceAnteriorRef.current ? 0 : indiceAtual > indiceAnteriorRef.current ? 1 : -1;
-  const contextoTransicao = { direcao, tipo: tipoTransicao };
 
-  useEffect(() => {
-    indiceAnteriorRef.current = indiceAtual;
-  }, [indiceAtual]);
+  // Mantém a direção durante toda a animação, inclusive nos renders de conclusão.
+  if (navegacao.pathname !== localizacao.pathname) {
+    setNavegacao({
+      pathname: localizacao.pathname,
+      direcao: obterDirecaoTransicao(localizacao.pathname, pathnameExibido),
+    });
+  }
+
+  const confirmarEntrada = useCallback(() => {
+    setPathnameExibido(localizacao.pathname);
+  }, [localizacao.pathname]);
 
   return (
-    <AnimatePresence mode="wait" initial={false} custom={contextoTransicao}>
-      <Routes location={localizacao} key={localizacao.pathname}>
-        <Route
-          path="/"
-          element={
-            <TransicaoPagina direcao={direcao} tipo={tipoTransicao}>
-              <Inicio />
-            </TransicaoPagina>
-          }
-        />
-        <Route
-          path="/sobre-mim"
-          element={
-            <TransicaoPagina direcao={direcao} tipo={tipoTransicao}>
-              <SobreMim />
-            </TransicaoPagina>
-          }
-        />
-        <Route
-          path="/portfolio"
-          element={
-            <TransicaoPagina direcao={direcao} tipo={tipoTransicao}>
-              <Portifolio />
-            </TransicaoPagina>
-          }
-        />
-        <Route
-          path="/projetos"
-          element={
-            <TransicaoPagina direcao={direcao} tipo={tipoTransicao}>
-              <Projetos />
-            </TransicaoPagina>
-          }
-        />
-        <Route
-          path="/artigos"
-          element={
-            <TransicaoPagina direcao={direcao} tipo={tipoTransicao}>
-              <Artigos />
-            </TransicaoPagina>
-          }
-        />
-        <Route
-          path="/artigos/:slug"
-          element={
-            <TransicaoPagina direcao={direcao} tipo={tipoTransicao}>
-              <ArtigoLeitura />
-            </TransicaoPagina>
-          }
-        />
-        <Route path="*" element={<Navigate to="/" replace />} />
-      </Routes>
-    </AnimatePresence>
+    <LayoutSite pathname={pathnameExibido}>
+      <AnimatePresence mode="wait" custom={{ direcao: navegacao.direcao }}>
+        <TransicaoPagina
+          key={localizacao.pathname}
+          direcao={navegacao.direcao}
+          tipo={tipoTransicao}
+          aoEntrar={confirmarEntrada}
+        >
+          <Routes location={localizacao}>
+            <Route path="/" element={<Inicio />} />
+            <Route path="/sobre-mim" element={<SobreMim />} />
+            <Route path="/portfolio" element={<Portifolio />} />
+            <Route path="/projetos" element={<Projetos />} />
+            <Route path="/artigos" element={<Artigos />} />
+            <Route path="/artigos/:slug" element={<ArtigoLeitura />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </TransicaoPagina>
+      </AnimatePresence>
+    </LayoutSite>
   );
 }
 
 export default function App() {
-  return (
-    <LayoutSite>
-      <RotasAnimadas />
-    </LayoutSite>
-  );
+  return <RotasAnimadas />;
 }

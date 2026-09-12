@@ -1,3 +1,24 @@
+.estrutura-site {
+  /* Contém o deslocamento lateral sem criar um scroll que afete o cabeçalho sticky. */
+  overflow-x: clip;
+}
+
+.cabecalho-site {
+  animation: cabecalhoEntrar 420ms var(--ease-enter) both;
+}
+
+@keyframes cabecalhoEntrar {
+  from {
+    opacity: 0;
+    translate: 0 -8px;
+  }
+
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
 .mascara-palavra {
   display: inline-block;
   overflow: hidden;

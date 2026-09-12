@@ -1,158 +1,105 @@
-import { useEffect } from "react";
-import { motion, useReducedMotion } from "motion/react";
+import { useLayoutEffect } from "react";
+import { motion, useIsPresent, useReducedMotion } from "motion/react";
+import { ContextoTransicao } from "./contextoTransicao.js";
 
 const curvaEntrada = [0.22, 1, 0.36, 1];
 const curvaSaida = [0.4, 0, 1, 1];
 
 const transicoes = {
   entrada: {
-    origem: "center 48%",
-    inicial: () => ({ opacity: 0, y: 18, scale: 0.986 }),
-    saida: () => ({ opacity: 0, y: -10, scale: 1.004 }),
-    entrada: { duration: 0.42, opacity: 0.26 },
-    saidaTempo: { duration: 0.16, opacity: 0.12 },
+    origem: "center 50svh",
+    inicial: () => ({ opacity: 0, scale: 1.045 }),
+    saida: () => ({ opacity: 0, scale: 1.025 }),
+    duracao: 0.7,
   },
   aproximar: {
-    origem: "center 38%",
-    inicial: () => ({
-      opacity: 0,
-      y: 18,
-      scale: 0.974,
-    }),
-    saida: () => ({
-      opacity: 0,
-      y: -8,
-      scale: 0.988,
-    }),
-    entrada: { duration: 0.44, opacity: 0.26 },
-    saidaTempo: { duration: 0.16, opacity: 0.12 },
+    origem: "center 36svh",
+    inicial: () => ({ opacity: 0, scale: 0.955 }),
+    saida: () => ({ opacity: 0, scale: 0.985 }),
+    duracao: 0.64,
   },
   lateral: {
-    origem: "center 42%",
-    inicial: ({ direcao }) => ({
-      opacity: 0,
-      x: direcao * 42,
-      y: 4,
-      scale: 0.994,
-    }),
-    saida: ({ direcao }) => ({
-      opacity: 0,
-      x: direcao * -26,
-      y: -2,
-      scale: 0.998,
-    }),
-    entrada: { duration: 0.38, opacity: 0.22 },
-    saidaTempo: { duration: 0.14, opacity: 0.1 },
+    origem: "left top",
+    inicial: (direcao) => ({ opacity: 0, x: direcao * 64 }),
+    saida: (direcao) => ({ opacity: 0, x: direcao * -32 }),
+    duracao: 0.58,
   },
   preciso: {
-    origem: "center 34%",
-    inicial: ({ direcao }) => ({
-      opacity: 0,
-      x: direcao * 20,
-      y: 16,
-      scale: 0.99,
-    }),
-    saida: ({ direcao }) => ({
-      opacity: 0,
-      x: direcao * -14,
-      y: -10,
-      scale: 0.996,
-    }),
-    entrada: { duration: 0.34, opacity: 0.2 },
-    saidaTempo: { duration: 0.12, opacity: 0.1 },
+    origem: "center top",
+    inicial: () => ({ opacity: 0, y: 32 }),
+    saida: () => ({ opacity: 0, y: -12 }),
+    duracao: 0.46,
   },
   editorial: {
-    origem: "center 30%",
-    inicial: ({ direcao }) => ({
-      opacity: 0,
-      x: direcao * 8,
-      y: 30,
-      scale: 0.996,
-    }),
-    saida: ({ direcao }) => ({
-      opacity: 0,
-      x: direcao * -8,
-      y: -16,
-      scale: 0.998,
-    }),
-    entrada: { duration: 0.46, opacity: 0.26 },
-    saidaTempo: { duration: 0.16, opacity: 0.12 },
+    origem: "center top",
+    inicial: () => ({ opacity: 0, y: 52 }),
+    saida: () => ({ opacity: 0, y: -22 }),
+    duracao: 0.66,
+  },
+  leitura: {
+    origem: "left 30svh",
+    inicial: (direcao) => ({ opacity: 0, x: direcao * 36 }),
+    saida: (direcao) => ({ opacity: 0, x: direcao * -20 }),
+    duracao: 0.6,
   },
 };
 
-function normalizarContexto(contexto, tipoPadrao, direcaoPadrao) {
-  if (typeof contexto === "number") {
-    return {
-      direcao: contexto || 1,
-      tipo: tipoPadrao,
-    };
-  }
-
-  return {
-    direcao: contexto?.direcao || direcaoPadrao || 1,
-    tipo: contexto?.tipo || tipoPadrao,
-  };
-}
-
-export default function TransicaoPagina({ children, direcao = 0, tipo = "lateral" }) {
+export default function TransicaoPagina({ children, direcao = 0, tipo = "lateral", aoEntrar }) {
   const prefereReducaoMovimento = useReducedMotion();
+  const estaPresente = useIsPresent();
   const transicao = transicoes[tipo] || transicoes.lateral;
-
-  const variantesPagina = prefereReducaoMovimento
-    ? {
-        inicial: { opacity: 0 },
-        visivel: { opacity: 1 },
-        saida: { opacity: 0 },
-      }
-    : {
-        inicial: (contexto) => transicao.inicial(normalizarContexto(contexto, tipo, direcao)),
-        visivel: {
-          opacity: 1,
-          x: 0,
-          y: 0,
-          scale: 1,
-          transition: {
-            duration: transicao.entrada.duration,
-            ease: curvaEntrada,
-            opacity: { duration: transicao.entrada.opacity },
-          },
-        },
-        saida: (contexto) => ({
-          ...transicao.saida(normalizarContexto(contexto, tipo, direcao)),
-          transition: {
-            duration: transicao.saidaTempo.duration,
-            ease: curvaSaida,
-            opacity: { duration: transicao.saidaTempo.opacity },
-          },
-        }),
-      };
-
   const contextoTransicao = { direcao, tipo };
+  const estadoVisivel = { opacity: 1, x: 0, y: 0, scale: 1 };
 
-  useEffect(() => {
+  const variantesPagina = {
+    inicial: prefereReducaoMovimento
+      ? estadoVisivel
+      : transicao.inicial(direcao || 1),
+    visivel: {
+      ...estadoVisivel,
+      transition: {
+        duration: prefereReducaoMovimento ? 0 : transicao.duracao,
+        ease: curvaEntrada,
+        opacity: { duration: prefereReducaoMovimento ? 0 : 0.3, ease: "easeOut" },
+      },
+      transitionEnd: { willChange: "auto" },
+    },
+    saida: (contexto) => ({
+      ...(prefereReducaoMovimento
+        ? { opacity: 0 }
+        : transicao.saida(contexto?.direcao ?? direcao)),
+      transition: {
+        duration: prefereReducaoMovimento ? 0 : 0.18,
+        ease: curvaSaida,
+      },
+    }),
+  };
+
+  useLayoutEffect(() => {
+    // Troca a estrutura e reposiciona o scroll antes de pintar a nova página.
+    aoEntrar?.();
     window.scrollTo({ top: 0, left: 0, behavior: "instant" });
-  }, []);
+  }, [aoEntrar]);
 
   return (
-    <motion.main
-      id="conteudo"
-      className="pagina"
-      custom={contextoTransicao}
-      variants={variantesPagina}
-      initial="inicial"
-      animate="visivel"
-      exit="saida"
-      style={{
-        backfaceVisibility: "hidden",
-        transformOrigin: transicao.origem,
-        willChange: prefereReducaoMovimento ? "auto" : "opacity, transform",
-      }}
-      transition={{
-        duration: prefereReducaoMovimento ? 0.01 : transicao.entrada.duration,
-        ease: curvaEntrada,
-      }}
-    >
-      {children}
-    </motion.main>
+    <ContextoTransicao.Provider value={contextoTransicao}>
+      <motion.main
+        id="conteudo"
+        className="pagina"
+        data-transicao={tipo}
+        inert={!estaPresente}
+        custom={contextoTransicao}
+        variants={variantesPagina}
+        initial="inicial"
+        animate="visivel"
+        exit="saida"
+        style={{
+          transformOrigin: transicao.origem,
+          willChange: prefereReducaoMovimento ? "auto" : "opacity, transform",
+        }}
+      >
+        {children}
+      </motion.main>
+    </ContextoTransicao.Provider>
   );
 }
