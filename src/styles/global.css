@@ -1389,6 +1389,7 @@ body.lightbox-certificado-aberto {
 
 .grupo-habilidades {
   display: grid;
+  grid-template-rows: auto 1fr;
   gap: 22px;
   min-height: 300px;
   padding: 28px;
@@ -1401,74 +1402,85 @@ body.lightbox-certificado-aberto {
 
 .grupo-habilidades ul {
   display: grid;
+  align-content: start;
   gap: 20px;
 }
 
 .item-habilidade {
   display: grid;
-  gap: 9px;
+  gap: 12px;
   color: var(--color-text-secondary);
   font-family: var(--font-mono);
   font-size: 0.82rem;
 }
 
-.item-habilidade__cabecalho {
-  display: flex;
+.tecnologia-com-nome {
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr);
   align-items: center;
-  justify-content: space-between;
-  gap: 16px;
+  gap: 12px;
 }
 
-.item-habilidade__identidade {
-  display: inline-flex;
+.tecnologia-com-nome__texto {
+  display: grid;
   min-width: 0;
-  align-items: center;
-  gap: 11px;
-  color: var(--color-text-secondary);
+  gap: 4px;
+  overflow: hidden;
 }
 
-.item-habilidade__identidade > span:last-child {
-  min-width: 0;
+.tecnologia-com-nome__rotulo {
+  display: block;
+  color: var(--color-text-primary);
+  font-family: "Inter", var(--font-sans);
+  font-size: 1.04rem;
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: -0.025em;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-16px);
+  transition:
+    opacity var(--duration-micro) var(--ease-standard),
+    transform 420ms var(--ease-enter),
+    visibility var(--duration-micro);
+}
+
+.tecnologia-com-nome[data-nome-visivel="true"] .tecnologia-com-nome__rotulo {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
 }
 
 .item-habilidade__icone {
-  position: relative;
-  display: inline-flex;
-  min-width: 0;
-  flex: 0 0 auto;
-  align-items: center;
+  display: grid;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  padding: 0;
+  border: 1px solid color-mix(in srgb, var(--cor-habilidade) 22%, transparent);
+  border-radius: var(--radius-medium);
+  background: color-mix(in srgb, var(--cor-habilidade) 7%, var(--color-bg-base));
   color: var(--cor-habilidade, var(--color-accent-primary));
-  font-size: 0.78rem;
-  font-weight: 700;
-  line-height: 1;
-  text-shadow: 0 0 18px var(--sombra-habilidade, rgba(231, 161, 90, 0.14));
-  white-space: nowrap;
+  cursor: pointer;
   transition:
-    color var(--duration-fast) var(--ease-standard),
+    border-color var(--duration-fast) var(--ease-standard),
+    background var(--duration-fast) var(--ease-standard),
     transform var(--duration-fast) var(--ease-standard);
 }
 
-.item-habilidade__icone::after {
-  position: absolute;
-  right: 1px;
-  bottom: -6px;
-  left: 0;
-  height: 1px;
-  background: currentColor;
-  content: "";
-  opacity: 0.42;
-  transform: scaleX(0.72);
-  transform-origin: left;
-  transition:
-    opacity var(--duration-fast) var(--ease-standard),
-    transform var(--duration-fast) var(--ease-standard);
+.item-habilidade__icone img,
+.item-habilidade__icone svg {
+  display: block;
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
 }
 
-.item-habilidade__cabecalho > span:last-child {
+.item-habilidade__contexto {
   color: var(--color-text-muted);
+  font-family: "Inter", var(--font-sans);
   font-size: 0.72rem;
-  text-align: right;
-  text-transform: uppercase;
+  line-height: 1.5;
 }
 
 .item-habilidade__barra {
@@ -1503,13 +1515,11 @@ body.lightbox-certificado-aberto {
   transform: scaleX(1.025);
 }
 
-.item-habilidade:hover .item-habilidade__icone {
-  transform: translateY(-1px);
-}
-
-.item-habilidade:hover .item-habilidade__icone::after {
-  opacity: 0.8;
-  transform: scaleX(1);
+.item-habilidade__icone:hover,
+.item-habilidade__icone:focus-visible {
+  border-color: color-mix(in srgb, var(--cor-habilidade) 42%, transparent);
+  background: color-mix(in srgb, var(--cor-habilidade) 12%, var(--color-bg-base));
+  transform: translateY(-2px);
 }
 
 .ferramentas-devops {
@@ -2211,15 +2221,5 @@ body.lightbox-certificado-aberto {
     min-height: auto;
     gap: 22px;
     padding: 22px;
-  }
-
-  .item-habilidade__cabecalho {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 4px;
-  }
-
-  .item-habilidade__cabecalho > span:last-child {
-    text-align: left;
   }
 }
