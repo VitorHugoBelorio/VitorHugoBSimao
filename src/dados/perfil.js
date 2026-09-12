@@ -3,28 +3,28 @@ import fotoVitor from "../imagens/foto-vitor.jpg";
 export const fotoPerfil = {
   src: fotoVitor,
   alt: "Foto de Vitor Hugo",
-  orientacao: "[Adicionar foto]",
+  orientacao: "Foto de Vitor Hugo",
 };
 
 export const redesSociais = [
   {
     nome: "Instagram",
     rotulo: "Instagram",
-    url: "",
+    url: "https://www.instagram.com/vitorhugobesi_/",
   },
   {
     nome: "LinkedIn",
     rotulo: "LinkedIn",
-    url: "",
+    url: "https://www.linkedin.com/in/vitor-hugo-belório-simão-86154a2a5",
   },
   {
     nome: "GitHub",
     rotulo: "GitHub",
-    url: "",
+    url: "https://github.com/VitorHugoBelorio",
   },
   {
     nome: "E-mail",
     rotulo: "E-mail",
-    url: "",
+    url: "mailto:vitorhugobsimao@gmail.com",
   },
 ];

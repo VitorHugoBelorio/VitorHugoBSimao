@@ -205,8 +205,7 @@ export default function CarrosselCertificados({ certificados }) {
           aria-label="Lista horizontal de certificados"
         >
           {certificadosEmLoop.map((certificado, indice) => {
-            const deveExibirPeriodo =
-              certificado.periodo && !certificado.periodo.includes("[Adicionar");
+            const deveExibirPeriodo = Boolean(certificado.periodo);
 
             return (
               <article
@@ -241,11 +240,6 @@ export default function CarrosselCertificados({ certificados }) {
                     {deveExibirPeriodo && <span>{certificado.periodo}</span>}
                   </div>
                   <h3>{certificado.titulo}</h3>
-                  <ul className="certificado-card__etiquetas" aria-label="Temas do certificado">
-                    {certificado.etiquetas.map((etiqueta) => (
-                      <li key={etiqueta}>{etiqueta}</li>
-                    ))}
-                  </ul>
                 </div>
               </article>
             );

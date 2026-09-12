@@ -68,154 +68,132 @@ export const certificados = [
   {
     titulo: "AI-Assisted",
     emissor: "CompassUOL",
-    periodo: "[Adicionar ano]",
     etiquetas: ["IA", "Desenvolvimento", "Produtividade"],
     imagem: "/certificados/ai-assisted.png",
   },
   {
     titulo: "Gen AI Technical",
     emissor: "CompassUOL",
-    periodo: "[Adicionar ano]",
     etiquetas: ["IA Generativa", "Software", "Produto"],
     imagem: "/certificados/gen-ai-technical.png",
   },
   {
     titulo: "AWS Partner Accreditation Technical",
     emissor: "AWS",
-    periodo: "[Adicionar ano]",
     etiquetas: ["AWS", "Cloud", "Arquitetura"],
     imagem: "/certificados/aws-partner-accreditation-technical.png",
   },
   {
     titulo: "Fundamentos Técnicos da AWS",
     emissor: "AWS",
-    periodo: "[Adicionar ano]",
     etiquetas: ["AWS", "Fundamentos", "Cloud"],
     imagem: "/certificados/fundamentos-tecnicos-aws.png",
   },
   {
     titulo: "AWS Bedrock Workshop",
     emissor: "Udemy",
-    periodo: "[Adicionar ano]",
     etiquetas: ["AWS Bedrock", "IA Generativa", "Cloud"],
     imagem: "/certificados/aws-bedrock-workshop.png",
   },
   {
     titulo: "AWS CDK",
     emissor: "Udemy",
-    periodo: "[Adicionar ano]",
     etiquetas: ["AWS CDK", "Infra as Code", "Cloud"],
     imagem: "/certificados/aws-cdk.png",
   },
   {
     titulo: "AWS Security",
     emissor: "Udemy",
-    periodo: "[Adicionar ano]",
     etiquetas: ["AWS", "Segurança", "Cloud"],
     imagem: "/certificados/aws-security.png",
   },
   {
     titulo: "Machine Learning com Amazon AWS e SageMaker",
     emissor: "Udemy",
-    periodo: "[Adicionar ano]",
     etiquetas: ["Machine Learning", "SageMaker", "AWS"],
     imagem: "/certificados/machine-learning-aws-sagemaker.png",
   },
   {
     titulo: "Introduction to Machine Learning",
     emissor: "AWS",
-    periodo: "[Adicionar ano]",
     etiquetas: ["Machine Learning", "IA", "AWS"],
     imagem: "/certificados/introduction-to-machine-learning.png",
   },
   {
     titulo: "Planning a Machine Learning Project",
     emissor: "AWS",
-    periodo: "[Adicionar ano]",
     etiquetas: ["Machine Learning", "Planejamento", "Produto"],
     imagem: "/certificados/planning-machine-learning-project.png",
   },
   {
     titulo: "Terraform",
     emissor: "Udemy",
-    periodo: "[Adicionar ano]",
     etiquetas: ["Terraform", "DevOps", "Infra"],
     imagem: "/certificados/terraform.png",
   },
   {
     titulo: "Formação Python Backend Developer",
     emissor: "DIO",
-    periodo: "[Adicionar ano]",
     etiquetas: ["Python", "Backend", "APIs"],
     imagem: "/certificados/formacao-python-backend-developer.png",
   },
   {
     titulo: "JavaScript",
     emissor: "Udemy",
-    periodo: "[Adicionar ano]",
     etiquetas: ["JavaScript", "Frontend", "Full-Stack"],
     imagem: "/certificados/javascript-udemy.png",
   },
   {
     titulo: "Postman Iniciante",
     emissor: "Udemy",
-    periodo: "[Adicionar ano]",
     etiquetas: ["APIs", "Postman", "Testes"],
     imagem: "/certificados/postman-iniciante.png",
   },
   {
     titulo: "Cyber Threat Management",
     emissor: "Cisco",
-    periodo: "[Adicionar ano]",
     etiquetas: ["Segurança", "Cisco", "Cybersecurity"],
     imagem: "/certificados/cyber-threat-management.png",
   },
   {
     titulo: "Introdução ao Google Cloud Platform",
     emissor: "DIO",
-    periodo: "[Adicionar ano]",
     etiquetas: ["Google Cloud", "Cloud", "Infra"],
     imagem: "/certificados/introducao-google-cloud-platform.png",
   },
   {
     titulo: "GitHub Copilot",
     emissor: "DIO",
-    periodo: "[Adicionar ano]",
     etiquetas: ["GitHub Copilot", "IA", "Produtividade"],
     imagem: "/certificados/github-copilot-aprimorando-desenvolvimento.png",
   },
   {
     titulo: "Bases de Prompt Engineering para GitHub Copilot",
     emissor: "DIO",
-    periodo: "[Adicionar ano]",
     etiquetas: ["Prompt Engineering", "GitHub Copilot", "IA"],
     imagem: "/certificados/github-copilot-prompt-engineering.png",
   },
   {
     titulo: "Copilot Chat",
     emissor: "DIO",
-    periodo: "[Adicionar ano]",
     etiquetas: ["Copilot Chat", "IA", "Desenvolvimento"],
     imagem: "/certificados/github-copilot-chat.png",
   },
   {
     titulo: "Configurando e usando o GitHub Copilot",
     emissor: "DIO",
-    periodo: "[Adicionar ano]",
     etiquetas: ["GitHub Copilot", "Produtividade", "Ferramentas"],
     imagem: "/certificados/github-copilot-configurando-e-usando.png",
   },
   {
     titulo: "Introdução ao GitHub Copilot",
     emissor: "DIO",
-    periodo: "[Adicionar ano]",
     etiquetas: ["GitHub Copilot", "IA", "Introdução"],
     imagem: "/certificados/github-copilot-introducao.png",
   },
   {
     titulo: "Orientação a Objetos",
     emissor: "balta.io",
-    periodo: "[Adicionar ano]",
     etiquetas: ["OOP", "Fundamentos", "Software"],
     imagem: "/certificados/orientacao-a-objetos-balta.png",
   },
@@ -424,57 +402,4 @@ export const ferramentasDevOps = [
   },
 ];
 
-export const artigos = [
-  {
-    slug: "ia-no-dia-a-dia-do-desenvolvedor",
-    rotulo: "IA aplicada",
-    titulo: "Como usar IA da melhor forma no dia a dia de um desenvolvedor?",
-    descricao:
-      "Um ensaio fictício sobre como usar IA como apoio técnico sem terceirizar raciocínio, contexto e responsabilidade.",
-    status: "Artigo experimental",
-    data: "Setembro de 2026",
-    destaque:
-      "A pergunta mais importante não é se a IA consegue gerar código, mas se eu continuo entendendo o problema, as restrições e as consequências da solução que estou entregando.",
-    secoes: [
-      {
-        titulo: "Começar pelo contexto, não pelo prompt",
-        paragrafos: [
-          "Em um cenário real de desenvolvimento, a IA responde melhor quando recebe contexto de produto, regra de negócio, limitações técnicas e intenção da mudança. Um pedido genérico tende a gerar uma resposta genérica; um pedido bem situado ajuda a transformar a ferramenta em apoio de análise.",
-          "Antes de pedir uma solução, gosto de organizar o problema: o que precisa mudar, qual comportamento não pode ser quebrado, quais arquivos concentram a regra e quais dúvidas ainda precisam ser respondidas. Esse preparo melhora tanto a conversa com a IA quanto a minha própria clareza.",
-        ],
-      },
-      {
-        titulo: "Usar IA para ampliar opções",
-        paragrafos: [
-          "Um dos usos mais produtivos é pedir alternativas. A IA pode comparar abordagens, apontar riscos, sugerir testes e lembrar detalhes que passariam despercebidos em uma primeira leitura.",
-          "Mesmo assim, a decisão final precisa continuar humana e contextual. A ferramenta pode sugerir caminhos, mas quem conhece o sistema, o prazo, o time e o impacto da mudança precisa assumir a escolha.",
-        ],
-      },
-      {
-        titulo: "Transformar velocidade em qualidade",
-        paragrafos: [
-          "Acelerar só vale a pena quando a entrega continua compreensível. Por isso, gosto de usar IA para revisar nomes, simplificar fluxos, levantar casos de borda e escrever testes mais objetivos.",
-          "Quando usada dessa forma, ela não substitui o cuidado técnico; ela ajuda a sustentar esse cuidado em um ritmo melhor.",
-        ],
-      },
-    ],
-    pontos: [
-      "Explicar o problema antes de pedir a solução.",
-      "Solicitar alternativas e riscos, não apenas código pronto.",
-      "Validar tudo com leitura, testes e entendimento do impacto.",
-      "Registrar decisões importantes para facilitar manutenção futura.",
-    ],
-  },
-  {
-    rotulo: "Estudo",
-    titulo: "[Adicionar artigo sobre ferramenta estudada]",
-    descricao: "[Adicionar descrição]",
-    status: "Placeholder",
-  },
-  {
-    rotulo: "Opinião",
-    titulo: "[Adicionar artigo sobre engenharia de software]",
-    descricao: "[Adicionar descrição]",
-    status: "Placeholder",
-  },
-];
+export const artigos = [];
