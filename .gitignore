@@ -11,3 +11,7 @@ pnpm-debug.log*
 
 # Local article templates and drafts
 src/dados/artigo-modelo.local.js
+
+# Local browser and link audits
+/testes-locais/
+/debug.log
