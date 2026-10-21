@@ -1447,6 +1447,14 @@ body.lightbox-certificado-aberto {
   transform: translateX(0);
 }
 
+@media (hover: none), (pointer: coarse), (max-width: 640px) {
+  .tecnologia-com-nome__rotulo {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+  }
+}
+
 .item-habilidade__icone {
   display: grid;
   width: 40px;
