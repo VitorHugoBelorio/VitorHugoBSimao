@@ -1455,6 +1455,26 @@ body.lightbox-certificado-aberto {
   }
 }
 
+@media (hover: none), (pointer: coarse) {
+  body::before {
+    display: none;
+  }
+
+  .cabecalho-site {
+    background: rgba(9, 13, 18, 0.96);
+    backdrop-filter: none;
+  }
+
+  .lamina-abstrata,
+  .risco-luz {
+    animation: none;
+  }
+
+  .risco-luz {
+    display: none;
+  }
+}
+
 .item-habilidade__icone {
   display: grid;
   width: 40px;

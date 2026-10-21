@@ -1,6 +1,7 @@
 import { useContext } from "react";
-import { motion, useReducedMotion } from "motion/react";
+import { motion } from "motion/react";
 import { ContextoTransicao } from "./contextoTransicao.js";
+import useMovimentoSimplificado from "../hooks/useMovimentoSimplificado.js";
 
 const elementos = {
   div: motion.div,
@@ -29,7 +30,7 @@ export default function Revelar({
   quantidade = 0.24,
   ...props
 }) {
-  const prefereReducaoMovimento = useReducedMotion();
+  const movimentoSimplificado = useMovimentoSimplificado();
   const { tipo, direcao } = useContext(ContextoTransicao);
   const Elemento = elementos[como] || motion.div;
   const movimento = movimentos[tipo] || movimentos.entrada;
@@ -51,12 +52,12 @@ export default function Revelar({
     <Elemento
       className={className}
       {...props}
-      initial={prefereReducaoMovimento ? false : inicial}
-      whileInView={prefereReducaoMovimento ? undefined : visivel}
+      initial={movimentoSimplificado ? false : inicial}
+      whileInView={movimentoSimplificado ? undefined : visivel}
       viewport={{ once: true, amount: quantidade }}
       transition={{
-        duration: prefereReducaoMovimento ? 0 : movimento.duracao,
-        delay: prefereReducaoMovimento ? 0 : Math.min(atraso, 0.24),
+        duration: movimentoSimplificado ? 0 : movimento.duracao,
+        delay: movimentoSimplificado ? 0 : Math.min(atraso, 0.24),
         ease: [0.22, 1, 0.36, 1],
       }}
     >
