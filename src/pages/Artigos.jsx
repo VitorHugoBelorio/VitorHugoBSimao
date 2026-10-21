@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import Revelar from "../componentes/Revelar.jsx";
 import { artigos } from "../dados/conteudo.js";
 
+// Página preservada e temporariamente desativada em App.jsx e navegacao.js.
+
 export default function Artigos() {
   return (
     <>

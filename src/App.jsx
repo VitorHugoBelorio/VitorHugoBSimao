@@ -7,31 +7,42 @@ import Inicio from "./pages/Inicio.jsx";
 import SobreMim from "./pages/SobreMim.jsx";
 import Portifolio from "./pages/Portifolio.jsx";
 import Projetos from "./pages/Projetos.jsx";
-import Artigos from "./pages/Artigos.jsx";
-import ArtigoLeitura from "./pages/artigos/ArtigoLeitura.jsx";
+// REATIVAR ARTIGOS: descomente os imports abaixo quando o primeiro artigo estiver pronto.
+// import Artigos from "./pages/Artigos.jsx";
+// import ArtigoLeitura from "./pages/artigos/ArtigoLeitura.jsx";
 
-const ordemRotas = ["/", "/sobre-mim", "/portfolio", "/projetos", "/artigos"];
+const ordemRotas = [
+  "/",
+  "/sobre-mim",
+  "/portfolio",
+  "/projetos",
+  // REATIVAR ARTIGOS: descomente a rota abaixo.
+  // "/artigos",
+];
 
 const transicoesPorRota = {
   "/": "entrada",
   "/sobre-mim": "aproximar",
   "/portfolio": "lateral",
   "/projetos": "preciso",
-  "/artigos": "editorial",
+  // REATIVAR ARTIGOS: descomente a transição abaixo.
+  // "/artigos": "editorial",
 };
 
 function obterIndiceRota(pathname) {
-  if (pathname.startsWith("/artigos/")) {
-    return ordemRotas.indexOf("/artigos");
-  }
+  // REATIVAR ARTIGOS:
+  // if (pathname.startsWith("/artigos/")) {
+  //   return ordemRotas.indexOf("/artigos");
+  // }
 
   return Math.max(ordemRotas.indexOf(pathname), 0);
 }
 
 function obterTipoTransicao(pathname) {
-  if (pathname.startsWith("/artigos/")) {
-    return "leitura";
-  }
+  // REATIVAR ARTIGOS:
+  // if (pathname.startsWith("/artigos/")) {
+  //   return "leitura";
+  // }
 
   return transicoesPorRota[pathname] || "lateral";
 }
@@ -92,8 +103,9 @@ function RotasAnimadas() {
             <Route path="/sobre-mim" element={<SobreMim />} />
             <Route path="/portfolio" element={<Portifolio />} />
             <Route path="/projetos" element={<Projetos />} />
-            <Route path="/artigos" element={<Artigos />} />
-            <Route path="/artigos/:slug" element={<ArtigoLeitura />} />
+            {/* REATIVAR ARTIGOS: descomente as duas rotas abaixo. */}
+            {/* <Route path="/artigos" element={<Artigos />} /> */}
+            {/* <Route path="/artigos/:slug" element={<ArtigoLeitura />} /> */}
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </TransicaoPagina>

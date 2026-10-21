@@ -1,8 +1,13 @@
-<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M14 50L26 14" stroke="#64A6AE" stroke-width="3" stroke-linecap="round"/>
-  <path d="M22 50L34 14" stroke="#E7A15A" stroke-width="3" stroke-linecap="round"/>
-  <path d="M31 18L38 48L45 18" stroke="#F5F7FA" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M49 18V48" stroke="#F5F7FA" stroke-width="3" stroke-linecap="round"/>
-  <path d="M58 18V48" stroke="#F5F7FA" stroke-width="3" stroke-linecap="round"/>
-  <path d="M49 33H58" stroke="#E7A15A" stroke-width="3" stroke-linecap="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="titulo descricao">
+  <title id="titulo">Símbolo de Vitor Hugo</title>
+  <desc id="descricao">Letra V geométrica em degradê ciano, azul e laranja.</desc>
+  <defs>
+    <linearGradient id="marca" x1="5" y1="32" x2="59" y2="32" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#64A6AE"/>
+      <stop offset="0.48" stop-color="#7AB9C0"/>
+      <stop offset="0.72" stop-color="#E7A15A"/>
+      <stop offset="1" stop-color="#F1B46F"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#marca)" d="M5 7h14.5L32 44.5 44.5 7H59L40 57H24L5 7Z"/>
 </svg>

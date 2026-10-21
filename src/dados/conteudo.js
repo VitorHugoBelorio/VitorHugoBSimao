@@ -57,7 +57,7 @@ export const itensTrajetoria = [
   }
 ];
 
-export const certificados = [
+const certificadosBase = [
   {
     titulo: "Programa de bolsas em Desenvolvimento de Software",
     emissor: "CompassUOL",
@@ -206,6 +206,11 @@ export const certificados = [
   },
 ];
 
+export const certificados = certificadosBase.map((certificado) => ({
+  ...certificado,
+  imagem: `${import.meta.env.BASE_URL}${certificado.imagem.replace(/^\/+/, "")}`,
+}));
+
 export const projetos = [
   {
     tipo: "Produto",
@@ -221,7 +226,7 @@ export const projetos = [
     mentor: {
       prefixo: "Projeto desenvolvido na mentoria com",
       nome: "Adriano Júnio",
-      url: "https://www.linkedin.com/in/maiscafe/",
+      url: "https://www.linkedin.com/in/adrianojm/",
     },
     descricao:
       "Sistema de controle e planejamento semanal criado para organizar rotina, prioridades e entregas. Durante o desenvolvimento, aprofundei o uso eficiente de Docker, autenticação por e-mail, boas práticas de desenvolvimento, deploy seguro e proteção da aplicação, além de aprender muito com a experiência prática da mentoria.",
@@ -402,4 +407,5 @@ export const ferramentasDevOps = [
   },
 ];
 
+// REATIVAR ARTIGOS: inclua o primeiro artigo neste array e reative os pontos marcados no projeto.
 export const artigos = [];

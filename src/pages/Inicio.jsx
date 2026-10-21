@@ -23,7 +23,7 @@ export default function Inicio() {
           atraso={0.12}
         />
         <p className="entrada-inicial__texto">
-          Desenvolvedor de software full-stack, atualmente atuando como PJ no mercado de desnvolvimento.
+          Desenvolvedor de software full-stack, atualmente atuando como PJ no mercado de desenvolvimento.
         </p>
         <div className="entrada-inicial__acoes" aria-label="Atalhos principais">
           <Link className="link-texto" to="/projetos">

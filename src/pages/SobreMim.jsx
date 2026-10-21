@@ -35,10 +35,11 @@ export default function SobreMim() {
                 Ver trajetória
                 <span aria-hidden="true">→</span>
               </Link>
-              <Link className="link-texto link-texto--discreto" to="/artigos">
+              {/* REATIVAR ARTIGOS: descomente o atalho abaixo. */}
+              {/* <Link className="link-texto link-texto--discreto" to="/artigos">
                 Ler artigos
                 <span aria-hidden="true">→</span>
-              </Link>
+              </Link> */}
             </div>
             <LinksSociais />
           </Revelar>

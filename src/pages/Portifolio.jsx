@@ -19,7 +19,7 @@ export default function Portifolio() {
       <section className="secao-conteudo">
         <CabecalhoSecao
           marcador="Linha do tempo"
-          titulo="Alguns dos princípais marcos da minha carreira."
+          titulo="Alguns dos principais marcos da minha carreira."
           texto=""
         />
 
@@ -29,7 +29,7 @@ export default function Portifolio() {
               como="li"
               className="item-linha-tempo"
               atraso={indice * 0.07}
-              key={indice}
+              key={item.titulo}
             >
               <div className="item-linha-tempo__ponto" aria-hidden="true" />
               <div className="item-linha-tempo__corpo">
