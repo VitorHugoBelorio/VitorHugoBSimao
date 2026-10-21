@@ -4,9 +4,12 @@ import { useReducedMotion } from "motion/react";
 
 const velocidadeAutomatica = 32;
 const impulsoManual = 520;
+const atrasoAnimacaoAutomatica = 700;
 
 export default function CarrosselCertificados({ certificados }) {
   const listaRef = useRef(null);
+  const botaoFecharRef = useRef(null);
+  const elementoOrigemRef = useRef(null);
   const ultimoTempoRef = useRef(0);
   const impulsoRef = useRef(0);
   const prefereReducaoMovimento = useReducedMotion();
@@ -50,14 +53,21 @@ export default function CarrosselCertificados({ certificados }) {
         lista.scrollLeft = lista.scrollWidth / 2;
       }
 
+      if (prefereReducaoMovimento) {
+        lista.scrollLeft += direcao * impulsoManual;
+        ajustarLoop();
+        return;
+      }
+
       impulsoRef.current += direcao * impulsoManual;
       ajustarLoop();
     },
-    [ajustarLoop, certificados.length],
+    [ajustarLoop, certificados.length, prefereReducaoMovimento],
   );
 
-  const abrirCertificado = useCallback((certificado) => {
+  const abrirCertificado = useCallback((certificado, elementoOrigem) => {
     if (certificado.imagem) {
+      elementoOrigemRef.current = elementoOrigem;
       setCertificadoAberto(certificado);
     }
   }, []);
@@ -70,7 +80,7 @@ export default function CarrosselCertificados({ certificados }) {
     (evento, certificado) => {
       if (evento.key === "Enter" || evento.key === " ") {
         evento.preventDefault();
-        abrirCertificado(certificado);
+        abrirCertificado(certificado, evento.currentTarget);
       }
     },
     [abrirCertificado],
@@ -82,6 +92,7 @@ export default function CarrosselCertificados({ certificados }) {
     }
 
     let quadroAnimacao;
+    let temporizadorInicio;
 
     function animar(tempo) {
       const lista = listaRef.current;
@@ -109,9 +120,15 @@ export default function CarrosselCertificados({ certificados }) {
       quadroAnimacao = requestAnimationFrame(animar);
     }
 
-    quadroAnimacao = requestAnimationFrame(animar);
+    temporizadorInicio = window.setTimeout(() => {
+      ultimoTempoRef.current = 0;
+      quadroAnimacao = requestAnimationFrame(animar);
+    }, atrasoAnimacaoAutomatica);
 
-    return () => cancelAnimationFrame(quadroAnimacao);
+    return () => {
+      window.clearTimeout(temporizadorInicio);
+      cancelAnimationFrame(quadroAnimacao);
+    };
   }, [ajustarLoop, certificadoAberto, certificados.length, prefereReducaoMovimento]);
 
   useEffect(() => {
@@ -127,10 +144,16 @@ export default function CarrosselCertificados({ certificados }) {
 
     document.addEventListener("keydown", fecharComEsc);
     document.body.classList.add("lightbox-certificado-aberto");
+    const raizAplicacao = document.getElementById("root");
+    raizAplicacao?.setAttribute("inert", "");
+    const quadroFoco = requestAnimationFrame(() => botaoFecharRef.current?.focus());
 
     return () => {
+      cancelAnimationFrame(quadroFoco);
       document.removeEventListener("keydown", fecharComEsc);
       document.body.classList.remove("lightbox-certificado-aberto");
+      raizAplicacao?.removeAttribute("inert");
+      requestAnimationFrame(() => elementoOrigemRef.current?.focus());
     };
   }, [certificadoAberto, fecharCertificado]);
 
@@ -156,6 +179,7 @@ export default function CarrosselCertificados({ certificados }) {
               <h2 id="certificado-lightbox-titulo">{certificadoAberto.titulo}</h2>
             </div>
             <button
+              ref={botaoFecharRef}
               className="certificado-lightbox__fechar"
               type="button"
               aria-label="Fechar visualização do certificado"
@@ -167,6 +191,7 @@ export default function CarrosselCertificados({ certificados }) {
           <img
             src={certificadoAberto.imagem}
             alt={`${certificadoAberto.titulo} - ${certificadoAberto.emissor}`}
+            decoding="async"
           />
         </div>
       </div>,
@@ -206,14 +231,16 @@ export default function CarrosselCertificados({ certificados }) {
         >
           {certificadosEmLoop.map((certificado, indice) => {
             const deveExibirPeriodo = Boolean(certificado.periodo);
+            const ehDuplicado = certificados.length > 1 && indice >= certificados.length;
 
             return (
               <article
                 className="certificado-card"
                 key={`${certificado.titulo}-${indice}`}
                 role="button"
-                tabIndex={0}
-                onClick={() => abrirCertificado(certificado)}
+                tabIndex={ehDuplicado ? -1 : 0}
+                aria-hidden={ehDuplicado ? "true" : undefined}
+                onClick={(evento) => abrirCertificado(certificado, evento.currentTarget)}
                 onKeyDown={(evento) => controlarTeclaCard(evento, certificado)}
                 aria-label={`Abrir certificado ${certificado.titulo} em tela cheia`}
               >
@@ -227,6 +254,8 @@ export default function CarrosselCertificados({ certificados }) {
                     <img
                       src={certificado.imagem}
                       alt=""
+                      loading="lazy"
+                      decoding="async"
                       onError={(evento) => {
                         evento.currentTarget.style.opacity = "0";
                       }}
@@ -248,37 +277,6 @@ export default function CarrosselCertificados({ certificados }) {
       </div>
 
       {lightboxCertificado}
-
-      {false && certificadoAberto && (
-        <div className="certificado-lightbox" role="dialog" aria-modal="true">
-          <button
-            className="certificado-lightbox__fundo"
-            type="button"
-            aria-label="Fechar visualização do certificado"
-            onClick={fecharCertificado}
-          />
-          <div className="certificado-lightbox__conteudo">
-            <div className="certificado-lightbox__topo">
-              <div>
-                <span>{certificadoAberto.emissor}</span>
-                <h2>{certificadoAberto.titulo}</h2>
-              </div>
-              <button
-                className="certificado-lightbox__fechar"
-                type="button"
-                aria-label="Fechar visualização do certificado"
-                onClick={fecharCertificado}
-              >
-                Fechar
-              </button>
-            </div>
-            <img
-              src={certificadoAberto.imagem}
-              alt={`${certificadoAberto.titulo} - ${certificadoAberto.emissor}`}
-            />
-          </div>
-        </div>
-      )}
     </div>
   );
 }

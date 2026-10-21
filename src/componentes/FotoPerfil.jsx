@@ -10,8 +10,8 @@ export default function FotoPerfil() {
   return (
     <motion.figure
       className="foto-perfil"
-      initial={prefereReducaoMovimento ? false : { opacity: 0, x: 20, scale: 0.96 }}
-      whileInView={prefereReducaoMovimento ? undefined : { opacity: 1, x: 0, scale: 1 }}
+      initial={prefereReducaoMovimento ? false : { opacity: 0, x: 20 }}
+      whileInView={prefereReducaoMovimento ? undefined : { opacity: 1, x: 0 }}
       viewport={{ once: true, amount: 0.18 }}
       transition={{
         duration: prefereReducaoMovimento ? 0 : 0.64,
@@ -25,6 +25,8 @@ export default function FotoPerfil() {
             <img
               src={fotoPerfil.src}
               alt={fotoPerfil.alt}
+              loading="lazy"
+              decoding="async"
               onError={() => setFalhaImagem(true)}
             />
           ) : (

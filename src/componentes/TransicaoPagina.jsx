@@ -1,4 +1,4 @@
-import { useLayoutEffect } from "react";
+import { useLayoutEffect, useMemo } from "react";
 import { motion, useIsPresent, useReducedMotion } from "motion/react";
 import { ContextoTransicao } from "./contextoTransicao.js";
 
@@ -8,15 +8,16 @@ const curvaSaida = [0.4, 0, 1, 1];
 const transicoes = {
   entrada: {
     origem: "center 50svh",
-    inicial: () => ({ opacity: 0, scale: 1.045 }),
-    saida: () => ({ opacity: 0, scale: 1.025 }),
-    duracao: 0.7,
+    inicial: () => ({ opacity: 0 }),
+    saida: () => ({ opacity: 0 }),
+    duracao: 0.48,
+    willChange: "opacity",
   },
   aproximar: {
     origem: "center 36svh",
-    inicial: () => ({ opacity: 0, scale: 0.955 }),
-    saida: () => ({ opacity: 0, scale: 0.985 }),
-    duracao: 0.64,
+    inicial: () => ({ opacity: 0, y: 20 }),
+    saida: () => ({ opacity: 0, y: -8 }),
+    duracao: 0.56,
   },
   lateral: {
     origem: "left top",
@@ -48,32 +49,34 @@ export default function TransicaoPagina({ children, direcao = 0, tipo = "lateral
   const prefereReducaoMovimento = useReducedMotion();
   const estaPresente = useIsPresent();
   const transicao = transicoes[tipo] || transicoes.lateral;
-  const contextoTransicao = { direcao, tipo };
-  const estadoVisivel = { opacity: 1, x: 0, y: 0, scale: 1 };
+  const contextoTransicao = useMemo(() => ({ direcao, tipo }), [direcao, tipo]);
+  const variantesPagina = useMemo(() => {
+    const estadoVisivel = { opacity: 1, x: 0, y: 0, scale: 1 };
 
-  const variantesPagina = {
-    inicial: prefereReducaoMovimento
-      ? estadoVisivel
-      : transicao.inicial(direcao || 1),
-    visivel: {
-      ...estadoVisivel,
-      transition: {
-        duration: prefereReducaoMovimento ? 0 : transicao.duracao,
-        ease: curvaEntrada,
-        opacity: { duration: prefereReducaoMovimento ? 0 : 0.3, ease: "easeOut" },
+    return {
+      inicial: prefereReducaoMovimento
+        ? estadoVisivel
+        : transicao.inicial(direcao || 1),
+      visivel: {
+        ...estadoVisivel,
+        transition: {
+          duration: prefereReducaoMovimento ? 0 : transicao.duracao,
+          ease: curvaEntrada,
+          opacity: { duration: prefereReducaoMovimento ? 0 : 0.3, ease: "easeOut" },
+        },
+        transitionEnd: { willChange: "auto" },
       },
-      transitionEnd: { willChange: "auto" },
-    },
-    saida: (contexto) => ({
-      ...(prefereReducaoMovimento
-        ? { opacity: 0 }
-        : transicao.saida(contexto?.direcao ?? direcao)),
-      transition: {
-        duration: prefereReducaoMovimento ? 0 : 0.18,
-        ease: curvaSaida,
-      },
-    }),
-  };
+      saida: (contexto) => ({
+        ...(prefereReducaoMovimento
+          ? { opacity: 0 }
+          : transicao.saida(contexto?.direcao ?? direcao)),
+        transition: {
+          duration: prefereReducaoMovimento ? 0 : 0.18,
+          ease: curvaSaida,
+        },
+      }),
+    };
+  }, [direcao, prefereReducaoMovimento, transicao]);
 
   useLayoutEffect(() => {
     // Troca a estrutura e reposiciona o scroll antes de pintar a nova página.
@@ -95,7 +98,9 @@ export default function TransicaoPagina({ children, direcao = 0, tipo = "lateral
         exit="saida"
         style={{
           transformOrigin: transicao.origem,
-          willChange: prefereReducaoMovimento ? "auto" : "opacity, transform",
+          willChange: prefereReducaoMovimento
+            ? "auto"
+            : transicao.willChange || "opacity, transform",
         }}
       >
         {children}
