@@ -229,7 +229,7 @@ export const projetos = [
     mentor: {
       prefixo: "Projeto desenvolvido na mentoria com",
       nome: "Adriano Júnio",
-      url: "https://www.linkedin.com/in/adrianojm/",
+      url: "https://www.linkedin.com/in/maiscafe/",
     },
     descricao:
       "Sistema de controle e planejamento semanal criado para organizar rotina, prioridades e entregas. Durante o desenvolvimento, aprofundei o uso eficiente de Docker, autenticação por e-mail, boas práticas de desenvolvimento, deploy seguro e proteção da aplicação, além de aprender muito com a experiência prática da mentoria.",
