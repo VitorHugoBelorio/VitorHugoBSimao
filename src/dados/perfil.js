@@ -1,4 +1,4 @@
-import fotoVitor from "../imagens/foto-vitor.jpg";
+import fotoVitor from "../imagens/foto-vitor-perfil.jpg";
 
 export const fotoPerfil = {
   src: fotoVitor,

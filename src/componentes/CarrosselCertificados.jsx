@@ -252,7 +252,7 @@ export default function CarrosselCertificados({ certificados }) {
                   </div>
                   {certificado.imagem && (
                     <img
-                      src={certificado.imagem}
+                      src={certificado.miniatura || certificado.imagem}
                       alt=""
                       loading="lazy"
                       decoding="async"

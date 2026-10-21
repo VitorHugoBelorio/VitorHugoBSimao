@@ -209,6 +209,9 @@ const certificadosBase = [
 export const certificados = certificadosBase.map((certificado) => ({
   ...certificado,
   imagem: `${import.meta.env.BASE_URL}${certificado.imagem.replace(/^\/+/, "")}`,
+  miniatura: `${import.meta.env.BASE_URL}${certificado.imagem
+    .replace(/^\/+certificados\//, "certificados/miniaturas/")
+    .replace(/\.png$/i, ".jpg")}`,
 }));
 
 export const projetos = [

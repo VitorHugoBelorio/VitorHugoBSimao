@@ -25,7 +25,10 @@ export default function FotoPerfil() {
             <img
               src={fotoPerfil.src}
               alt={fotoPerfil.alt}
-              loading="lazy"
+              width="1200"
+              height="1281"
+              loading="eager"
+              fetchPriority="high"
               decoding="async"
               onError={() => setFalhaImagem(true)}
             />
